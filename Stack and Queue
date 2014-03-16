@@ -1,0 +1,102 @@
+class Stack:
+	def __init__(self):
+		self.head=stackNode(None)
+		self.tail=self.head
+
+	def peek(self):
+		print self.head.data
+		return self.head.data
+
+	def remove(self):
+		self.head=self.head.next
+		#print self.head.next.data
+	def add(self, data):
+
+		newNode=stackNode(data)
+		#newNode.data=data
+		newNode.next=self.head
+		self.head=newNode
+
+class stackNode:
+	def __init__(self,data):
+		self.data=data
+		self.next=None
+
+class Queue:
+	def __init__(self):
+		self.tail=queueNode(None)
+		if self.tail.next==None:
+			self.head=self.tail
+
+	def peek(self):
+		print self.head.data
+		return self.head.data
+
+	def remove(self):
+		temp=self.tail
+		while (temp.next.data!=None):	
+			if temp.next.data==self.head.data:
+				self.head=temp
+				break
+			else:
+				temp=temp.next
+
+
+					
+		#print self.head.next.data
+	def dequeue(self):
+		self.tail=self.tail.next
+	def add(self, data):
+		newNode=queueNode(data)
+		#newNode.data=data
+		newNode.next=self.tail
+		#print newNode.next.data
+		self.tail=newNode
+		#print self.tail.data
+		#print self.tail.next.data
+		if self.tail.next.data==None:
+			self.head=self.tail
+
+class queueNode:
+	def __init__(self,data):
+		self.data=data
+		self.next=None
+
+
+a=Stack()
+a.peek()
+a.add(8)
+a.peek()
+a.add(10)
+a.peek()
+a.remove()
+a.peek()
+
+print "mash"
+b=Queue()
+b.peek()
+b.add(8)
+b.peek()
+b.add(10)
+b.peek()
+b.remove()
+b.peek()
+
+
+
+def reverseQueue(Queue):
+	temp=Stack()
+	while(Queue.peek()!=NULL):
+		Stack.push(Queue.peek())
+		Queue.remove()
+	while(Stack.peek()!=NULL):
+		Queue.add(Stack.pop())
+
+def copyStack (Stack):
+	temp=Queue()
+	newStack=Stack()
+	while(Stack.peek()!=NULL):
+		Queue.add(Stack.peek())
+	while(newStack.peek()!=NULL):
+		newStack.add(Queue.pop)
+
